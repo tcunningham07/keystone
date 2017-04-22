@@ -137,5 +137,15 @@ markdown.prototype.updateItem = function (item, data, callback) {
 	process.nextTick(callback);
 };
 
+marked.plugins = {
+	note: function(arg) {
+	 return '<blockquote class="note">' + arg + '</blockquote>';
+	},
+	caution: function(arg) {
+	 return '<blockquote class="caution">' + arg + '</blockquote>';
+	}
+};
+
+
 /* Export Field Type */
 module.exports = markdown;
