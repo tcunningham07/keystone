@@ -1267,15 +1267,6 @@ var initMarkdown = function(el) {
 	$this.markdown()
 }
 
-marked.plugins = {
-	note: function(arg) {
-	 return '<blockquote class="note">' + arg + '</blockquote>';
-	},
-	caution: function(arg) {
-	 return '<blockquote class="caution">' + arg + '</blockquote>';
-	}
-};
-
 var analyzeMarkdown = function(e) {
 	var blurred = false,
 			el,
