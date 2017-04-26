@@ -216,7 +216,7 @@ module.exports = Field.create({
 		const { label, note, path } = this.props;
 		const buttons = (
 			<div style={this.hasFile() ? { marginTop: '1em' } : null}>
-				{this.hasImage() && this.renderImagePreview()}
+				{this.hasFile() && this.renderImagePreview()}
 				<Button onClick={this.triggerFileBrowser}>
 					{this.hasFile() ? 'Change' : 'Upload'} File
 				</Button>
