@@ -12,6 +12,7 @@ import {
 	FormInput,
 	FormNote,
 } from '../../../admin/client/App/elemental';
+import ImageThumbnail from '../../components/ImageThumbnail';
 import FileChangeMessage from '../../components/FileChangeMessage';
 import HiddenFileInput from '../../components/HiddenFileInput';
 
@@ -120,7 +121,28 @@ module.exports = Field.create({
 	// ==============================
 	// RENDERERS
 	// ==============================
+	renderImagePreview () {
+		const href = this.props.value ? this.props.value.url : undefined;
 
+		// render icon feedback for intent
+		let mask;
+		if (this.hasLocal()) mask = 'upload';
+		else if (this.state.removeExisting) mask = 'remove';
+		else if (this.state.loading) mask = 'loading';
+
+
+		return (
+			<ImageThumbnail
+				component="a"
+				href={href}
+				mask={mask}
+				target="__blank"
+				style={{ float: 'left', marginRight: '1em' }}
+			>
+				<img src={href} style={{ height: 90 }} />
+			</ImageThumbnail>
+		);
+	},
 	renderFileNameAndChangeMessage () {
 		const href = this.props.value ? this.props.value.url : undefined;
 		return (
